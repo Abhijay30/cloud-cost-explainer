@@ -1,0 +1,4534 @@
+{
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "scales": [
+  0.25,
+  0.5,
+  0.75,
+  1.0
+ ],
+ "summary": {
+  "0.25": {
+   "Explainer (with business calendar)": {
+    "precision_mean": 0.72,
+    "precision_sd": 0.167,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.684,
+    "f1_sd": 0.086,
+    "false_alerts_mean": 2.7
+   },
+   "Explainer (no calendar)": {
+    "precision_mean": 0.382,
+    "precision_sd": 0.071,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.484,
+    "f1_sd": 0.063,
+    "false_alerts_mean": 9.8
+   },
+   "Static threshold (>1.5x 7-day mean)": {
+    "precision_mean": 0.274,
+    "precision_sd": 0.082,
+    "recall_mean": 0.537,
+    "recall_sd": 0.098,
+    "f1_mean": 0.359,
+    "f1_sd": 0.086,
+    "false_alerts_mean": 12.3
+   },
+   "Rolling z-score (mean/std, z>3)": {
+    "precision_mean": 0.326,
+    "precision_sd": 0.041,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.439,
+    "f1_sd": 0.051,
+    "false_alerts_mean": 11.6
+   },
+   "Isolation Forest": {
+    "precision_mean": 0.388,
+    "precision_sd": 0.036,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.492,
+    "f1_sd": 0.045,
+    "false_alerts_mean": 10.2
+   },
+   "Static threshold + calendar": {
+    "precision_mean": 0.302,
+    "precision_sd": 0.093,
+    "recall_mean": 0.537,
+    "recall_sd": 0.098,
+    "f1_mean": 0.382,
+    "f1_sd": 0.093,
+    "false_alerts_mean": 10.8
+   },
+   "Rolling z-score + calendar": {
+    "precision_mean": 0.689,
+    "precision_sd": 0.145,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.678,
+    "f1_sd": 0.101,
+    "false_alerts_mean": 2.7
+   },
+   "Isolation Forest + calendar": {
+    "precision_mean": 0.654,
+    "precision_sd": 0.075,
+    "recall_mean": 0.675,
+    "recall_sd": 0.083,
+    "f1_mean": 0.661,
+    "f1_sd": 0.062,
+    "false_alerts_mean": 3.5
+   },
+   "_explanation": {
+    "detected": 54,
+    "pattern_accuracy": 0.963,
+    "effect_accuracy": 0.963
+   }
+  },
+  "0.5": {
+   "Explainer (with business calendar)": {
+    "precision_mean": 0.762,
+    "precision_sd": 0.145,
+    "recall_mean": 0.95,
+    "recall_sd": 0.061,
+    "f1_mean": 0.839,
+    "f1_sd": 0.099,
+    "false_alerts_mean": 2.8
+   },
+   "Explainer (no calendar)": {
+    "precision_mean": 0.455,
+    "precision_sd": 0.074,
+    "recall_mean": 0.95,
+    "recall_sd": 0.061,
+    "f1_mean": 0.612,
+    "f1_sd": 0.074,
+    "false_alerts_mean": 9.9
+   },
+   "Static threshold (>1.5x 7-day mean)": {
+    "precision_mean": 0.343,
+    "precision_sd": 0.073,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.466,
+    "f1_sd": 0.068,
+    "false_alerts_mean": 12.3
+   },
+   "Rolling z-score (mean/std, z>3)": {
+    "precision_mean": 0.404,
+    "precision_sd": 0.027,
+    "recall_mean": 0.863,
+    "recall_sd": 0.037,
+    "f1_mean": 0.55,
+    "f1_sd": 0.028,
+    "false_alerts_mean": 11.5
+   },
+   "Isolation Forest": {
+    "precision_mean": 0.481,
+    "precision_sd": 0.032,
+    "recall_mean": 0.912,
+    "recall_sd": 0.057,
+    "f1_mean": 0.63,
+    "f1_sd": 0.035,
+    "false_alerts_mean": 9.8
+   },
+   "Static threshold + calendar": {
+    "precision_mean": 0.375,
+    "precision_sd": 0.082,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.495,
+    "f1_sd": 0.072,
+    "false_alerts_mean": 10.8
+   },
+   "Rolling z-score + calendar": {
+    "precision_mean": 0.762,
+    "precision_sd": 0.11,
+    "recall_mean": 0.863,
+    "recall_sd": 0.037,
+    "f1_mean": 0.806,
+    "f1_sd": 0.069,
+    "false_alerts_mean": 2.6
+   },
+   "Isolation Forest + calendar": {
+    "precision_mean": 0.749,
+    "precision_sd": 0.055,
+    "recall_mean": 0.912,
+    "recall_sd": 0.057,
+    "f1_mean": 0.821,
+    "f1_sd": 0.038,
+    "false_alerts_mean": 3.1
+   },
+   "_explanation": {
+    "detected": 76,
+    "pattern_accuracy": 0.987,
+    "effect_accuracy": 0.987
+   }
+  },
+  "0.75": {
+   "Explainer (with business calendar)": {
+    "precision_mean": 0.77,
+    "precision_sd": 0.136,
+    "recall_mean": 0.975,
+    "recall_sd": 0.05,
+    "f1_mean": 0.855,
+    "f1_sd": 0.096,
+    "false_alerts_mean": 2.8
+   },
+   "Explainer (no calendar)": {
+    "precision_mean": 0.461,
+    "precision_sd": 0.059,
+    "recall_mean": 0.975,
+    "recall_sd": 0.05,
+    "f1_mean": 0.625,
+    "f1_sd": 0.061,
+    "false_alerts_mean": 9.9
+   },
+   "Static threshold (>1.5x 7-day mean)": {
+    "precision_mean": 0.343,
+    "precision_sd": 0.073,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.466,
+    "f1_sd": 0.068,
+    "false_alerts_mean": 12.3
+   },
+   "Rolling z-score (mean/std, z>3)": {
+    "precision_mean": 0.405,
+    "precision_sd": 0.027,
+    "recall_mean": 0.875,
+    "recall_sd": 0.0,
+    "f1_mean": 0.554,
+    "f1_sd": 0.026,
+    "false_alerts_mean": 11.5
+   },
+   "Isolation Forest": {
+    "precision_mean": 0.5,
+    "precision_sd": 0.035,
+    "recall_mean": 0.988,
+    "recall_sd": 0.037,
+    "f1_mean": 0.664,
+    "f1_sd": 0.034,
+    "false_alerts_mean": 9.8
+   },
+   "Static threshold + calendar": {
+    "precision_mean": 0.375,
+    "precision_sd": 0.082,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.495,
+    "f1_sd": 0.072,
+    "false_alerts_mean": 10.8
+   },
+   "Rolling z-score + calendar": {
+    "precision_mean": 0.761,
+    "precision_sd": 0.107,
+    "recall_mean": 0.875,
+    "recall_sd": 0.0,
+    "f1_mean": 0.811,
+    "f1_sd": 0.058,
+    "false_alerts_mean": 2.6
+   },
+   "Isolation Forest + calendar": {
+    "precision_mean": 0.761,
+    "precision_sd": 0.065,
+    "recall_mean": 0.988,
+    "recall_sd": 0.037,
+    "f1_mean": 0.858,
+    "f1_sd": 0.046,
+    "false_alerts_mean": 3.1
+   },
+   "_explanation": {
+    "detected": 78,
+    "pattern_accuracy": 1.0,
+    "effect_accuracy": 1.0
+   }
+  },
+  "1.0": {
+   "Explainer (with business calendar)": {
+    "precision_mean": 0.763,
+    "precision_sd": 0.137,
+    "recall_mean": 1.0,
+    "recall_sd": 0.0,
+    "f1_mean": 0.859,
+    "f1_sd": 0.088,
+    "false_alerts_mean": 2.9
+   },
+   "Explainer (no calendar)": {
+    "precision_mean": 0.454,
+    "precision_sd": 0.052,
+    "recall_mean": 1.0,
+    "recall_sd": 0.0,
+    "f1_mean": 0.623,
+    "f1_sd": 0.051,
+    "false_alerts_mean": 10.0
+   },
+   "Static threshold (>1.5x 7-day mean)": {
+    "precision_mean": 0.343,
+    "precision_sd": 0.073,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.466,
+    "f1_sd": 0.068,
+    "false_alerts_mean": 12.3
+   },
+   "Rolling z-score (mean/std, z>3)": {
+    "precision_mean": 0.418,
+    "precision_sd": 0.021,
+    "recall_mean": 0.9,
+    "recall_sd": 0.05,
+    "f1_mean": 0.57,
+    "f1_sd": 0.022,
+    "false_alerts_mean": 11.5
+   },
+   "Isolation Forest": {
+    "precision_mean": 0.515,
+    "precision_sd": 0.037,
+    "recall_mean": 1.0,
+    "recall_sd": 0.0,
+    "f1_mean": 0.679,
+    "f1_sd": 0.033,
+    "false_alerts_mean": 9.8
+   },
+   "Static threshold + calendar": {
+    "precision_mean": 0.375,
+    "precision_sd": 0.082,
+    "recall_mean": 0.75,
+    "recall_sd": 0.0,
+    "f1_mean": 0.495,
+    "f1_sd": 0.072,
+    "false_alerts_mean": 10.8
+   },
+   "Rolling z-score + calendar": {
+    "precision_mean": 0.772,
+    "precision_sd": 0.1,
+    "recall_mean": 0.9,
+    "recall_sd": 0.05,
+    "f1_mean": 0.826,
+    "f1_sd": 0.048,
+    "false_alerts_mean": 2.6
+   },
+   "Isolation Forest + calendar": {
+    "precision_mean": 0.772,
+    "precision_sd": 0.06,
+    "recall_mean": 1.0,
+    "recall_sd": 0.0,
+    "f1_mean": 0.87,
+    "f1_sd": 0.039,
+    "false_alerts_mean": 3.1
+   },
+   "_explanation": {
+    "detected": 80,
+    "pattern_accuracy": 1.0,
+    "effect_accuracy": 1.0
+   }
+  }
+ },
+ "miss_counts": {
+  "0.25": {
+   "A3": 6,
+   "A6": 10,
+   "A7": 8,
+   "A8": 2
+  },
+  "0.5": {
+   "A7": 4
+  },
+  "0.75": {
+   "A7": 2
+  }
+ },
+ "runs": [
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.714,
+   "recall": 0.625,
+   "f1": 0.667,
+   "alerts": 7,
+   "false_alerts": 2,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Explainer (no calendar)",
+   "precision": 0.385,
+   "recall": 0.625,
+   "f1": 0.476,
+   "alerts": 13,
+   "false_alerts": 8,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.364,
+   "recall": 0.5,
+   "f1": 0.421,
+   "alerts": 11,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Isolation Forest",
+   "precision": 0.471,
+   "recall": 0.75,
+   "f1": 0.578,
+   "alerts": 17,
+   "false_alerts": 9,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Static threshold + calendar",
+   "precision": 0.4,
+   "recall": 0.5,
+   "f1": 0.444,
+   "alerts": 10,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.75,
+   "recall": 0.75,
+   "f1": 0.75,
+   "alerts": 8,
+   "false_alerts": 2,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 1,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.8,
+   "recall": 0.75,
+   "f1": 0.774,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.455,
+   "recall": 0.625,
+   "f1": 0.526,
+   "alerts": 11,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Explainer (no calendar)",
+   "precision": 0.294,
+   "recall": 0.625,
+   "f1": 0.4,
+   "alerts": 17,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.2,
+   "recall": 0.375,
+   "f1": 0.261,
+   "alerts": 15,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.286,
+   "recall": 0.5,
+   "f1": 0.364,
+   "alerts": 14,
+   "false_alerts": 10,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Isolation Forest",
+   "precision": 0.375,
+   "recall": 0.625,
+   "f1": 0.469,
+   "alerts": 16,
+   "false_alerts": 10,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Static threshold + calendar",
+   "precision": 0.214,
+   "recall": 0.375,
+   "f1": 0.273,
+   "alerts": 14,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.5,
+   "recall": 0.5,
+   "f1": 0.5,
+   "alerts": 8,
+   "false_alerts": 4,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 2,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 0.625,
+   "f1": 0.645,
+   "alerts": 9,
+   "false_alerts": 3,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.714,
+   "recall": 0.625,
+   "f1": 0.667,
+   "alerts": 7,
+   "false_alerts": 2,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Explainer (no calendar)",
+   "precision": 0.333,
+   "recall": 0.625,
+   "f1": 0.435,
+   "alerts": 15,
+   "false_alerts": 10,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.417,
+   "recall": 0.625,
+   "f1": 0.5,
+   "alerts": 12,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.375,
+   "recall": 0.75,
+   "f1": 0.5,
+   "alerts": 16,
+   "false_alerts": 10,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Isolation Forest",
+   "precision": 0.375,
+   "recall": 0.625,
+   "f1": 0.469,
+   "alerts": 16,
+   "false_alerts": 10,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Static threshold + calendar",
+   "precision": 0.455,
+   "recall": 0.625,
+   "f1": 0.526,
+   "alerts": 11,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Rolling z-score + calendar",
+   "precision": 1.0,
+   "recall": 0.75,
+   "f1": 0.857,
+   "alerts": 6,
+   "false_alerts": 0,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 3,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 0.625,
+   "f1": 0.645,
+   "alerts": 9,
+   "false_alerts": 3,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.714,
+   "recall": 0.625,
+   "f1": 0.667,
+   "alerts": 7,
+   "false_alerts": 2,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Explainer (no calendar)",
+   "precision": 0.333,
+   "recall": 0.625,
+   "f1": 0.435,
+   "alerts": 15,
+   "false_alerts": 10,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.357,
+   "recall": 0.625,
+   "f1": 0.455,
+   "alerts": 14,
+   "false_alerts": 9,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.278,
+   "recall": 0.625,
+   "f1": 0.385,
+   "alerts": 18,
+   "false_alerts": 13,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Isolation Forest",
+   "precision": 0.368,
+   "recall": 0.75,
+   "f1": 0.494,
+   "alerts": 19,
+   "false_alerts": 12,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Static threshold + calendar",
+   "precision": 0.417,
+   "recall": 0.625,
+   "f1": 0.5,
+   "alerts": 12,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.556,
+   "recall": 0.625,
+   "f1": 0.588,
+   "alerts": 9,
+   "false_alerts": 4,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 4,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.636,
+   "recall": 0.75,
+   "f1": 0.689,
+   "alerts": 11,
+   "false_alerts": 4,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.75,
+   "recall": 0.75,
+   "f1": 0.75,
+   "alerts": 8,
+   "false_alerts": 2,
+   "missed": [
+    "A3",
+    "A6"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Explainer (no calendar)",
+   "precision": 0.4,
+   "recall": 0.75,
+   "f1": 0.522,
+   "alerts": 15,
+   "false_alerts": 9,
+   "missed": [
+    "A3",
+    "A6"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.25,
+   "recall": 0.5,
+   "f1": 0.333,
+   "alerts": 16,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.312,
+   "recall": 0.625,
+   "f1": 0.417,
+   "alerts": 16,
+   "false_alerts": 11,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Isolation Forest",
+   "precision": 0.357,
+   "recall": 0.625,
+   "f1": 0.455,
+   "alerts": 14,
+   "false_alerts": 9,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Static threshold + calendar",
+   "precision": 0.267,
+   "recall": 0.5,
+   "f1": 0.348,
+   "alerts": 15,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.714,
+   "recall": 0.625,
+   "f1": 0.667,
+   "alerts": 7,
+   "false_alerts": 2,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 5,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.625,
+   "recall": 0.625,
+   "f1": 0.625,
+   "alerts": 8,
+   "false_alerts": 3,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.5,
+   "recall": 0.625,
+   "f1": 0.556,
+   "alerts": 10,
+   "false_alerts": 5,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Explainer (no calendar)",
+   "precision": 0.294,
+   "recall": 0.625,
+   "f1": 0.4,
+   "alerts": 17,
+   "false_alerts": 12,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.294,
+   "recall": 0.625,
+   "f1": 0.4,
+   "alerts": 17,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.316,
+   "recall": 0.75,
+   "f1": 0.444,
+   "alerts": 19,
+   "false_alerts": 13,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Isolation Forest",
+   "precision": 0.421,
+   "recall": 0.75,
+   "f1": 0.539,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Static threshold + calendar",
+   "precision": 0.312,
+   "recall": 0.625,
+   "f1": 0.417,
+   "alerts": 16,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 0.75,
+   "f1": 0.706,
+   "alerts": 9,
+   "false_alerts": 3,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 6,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 0.75,
+   "f1": 0.706,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 0.625,
+   "f1": 0.734,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 0.625,
+   "f1": 0.556,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.235,
+   "recall": 0.5,
+   "f1": 0.32,
+   "alerts": 17,
+   "false_alerts": 13,
+   "missed": [
+    "A3",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.294,
+   "recall": 0.625,
+   "f1": 0.4,
+   "alerts": 17,
+   "false_alerts": 12,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Isolation Forest",
+   "precision": 0.4,
+   "recall": 0.625,
+   "f1": 0.488,
+   "alerts": 15,
+   "false_alerts": 9,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Static threshold + calendar",
+   "precision": 0.267,
+   "recall": 0.5,
+   "f1": 0.348,
+   "alerts": 15,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.625,
+   "recall": 0.625,
+   "f1": 0.625,
+   "alerts": 8,
+   "false_alerts": 3,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 7,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.75,
+   "recall": 0.625,
+   "f1": 0.682,
+   "alerts": 8,
+   "false_alerts": 2,
+   "missed": [
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Explainer (with business calendar)",
+   "precision": 1.0,
+   "recall": 0.625,
+   "f1": 0.769,
+   "alerts": 5,
+   "false_alerts": 0,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Explainer (no calendar)",
+   "precision": 0.417,
+   "recall": 0.625,
+   "f1": 0.5,
+   "alerts": 12,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.227,
+   "recall": 0.625,
+   "f1": 0.333,
+   "alerts": 22,
+   "false_alerts": 17,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Isolation Forest",
+   "precision": 0.412,
+   "recall": 0.75,
+   "f1": 0.532,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Static threshold + calendar",
+   "precision": 0.238,
+   "recall": 0.625,
+   "f1": 0.345,
+   "alerts": 21,
+   "false_alerts": 16,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.6,
+   "recall": 0.75,
+   "f1": 0.667,
+   "alerts": 10,
+   "false_alerts": 4,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 8,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.636,
+   "recall": 0.75,
+   "f1": 0.689,
+   "alerts": 11,
+   "false_alerts": 4,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 0.75,
+   "f1": 0.814,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.263,
+   "recall": 0.625,
+   "f1": 0.37,
+   "alerts": 19,
+   "false_alerts": 14,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.412,
+   "recall": 0.75,
+   "f1": 0.532,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Isolation Forest",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Static threshold + calendar",
+   "precision": 0.312,
+   "recall": 0.625,
+   "f1": 0.417,
+   "alerts": 16,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.875,
+   "recall": 0.75,
+   "f1": 0.808,
+   "alerts": 8,
+   "false_alerts": 1,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 9,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.545,
+   "recall": 0.75,
+   "f1": 0.632,
+   "alerts": 11,
+   "false_alerts": 5,
+   "missed": [
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.571,
+   "recall": 0.875,
+   "f1": 0.691,
+   "alerts": 14,
+   "false_alerts": 6,
+   "missed": [
+    "A6"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Explainer (no calendar)",
+   "precision": 0.364,
+   "recall": 0.875,
+   "f1": 0.514,
+   "alerts": 22,
+   "false_alerts": 14,
+   "missed": [
+    "A6"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.13,
+   "recall": 0.375,
+   "f1": 0.194,
+   "alerts": 23,
+   "false_alerts": 20,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.3,
+   "recall": 0.625,
+   "f1": 0.405,
+   "alerts": 20,
+   "false_alerts": 14,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Isolation Forest",
+   "precision": 0.353,
+   "recall": 0.5,
+   "f1": 0.414,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Static threshold + calendar",
+   "precision": 0.143,
+   "recall": 0.375,
+   "f1": 0.207,
+   "alerts": 21,
+   "false_alerts": 18,
+   "missed": [
+    "A3",
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.6,
+   "recall": 0.625,
+   "f1": 0.612,
+   "alerts": 10,
+   "false_alerts": 4,
+   "missed": [
+    "A4",
+    "A6",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.25,
+   "seed": 10,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.545,
+   "recall": 0.5,
+   "f1": 0.522,
+   "alerts": 11,
+   "false_alerts": 5,
+   "missed": [
+    "A4",
+    "A6",
+    "A7",
+    "A8"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.833,
+   "recall": 1.0,
+   "f1": 0.909,
+   "alerts": 12,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Explainer (no calendar)",
+   "precision": 0.556,
+   "recall": 1.0,
+   "f1": 0.714,
+   "alerts": 18,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.389,
+   "recall": 0.875,
+   "f1": 0.538,
+   "alerts": 18,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Isolation Forest",
+   "precision": 0.471,
+   "recall": 0.875,
+   "f1": 0.612,
+   "alerts": 17,
+   "false_alerts": 9,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.778,
+   "recall": 0.875,
+   "f1": 0.824,
+   "alerts": 9,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 1,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.8,
+   "recall": 0.875,
+   "f1": 0.836,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.538,
+   "recall": 0.875,
+   "f1": 0.667,
+   "alerts": 13,
+   "false_alerts": 6,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Explainer (no calendar)",
+   "precision": 0.368,
+   "recall": 0.875,
+   "f1": 0.519,
+   "alerts": 19,
+   "false_alerts": 12,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.375,
+   "recall": 0.75,
+   "f1": 0.5,
+   "alerts": 16,
+   "false_alerts": 10,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 0.875,
+   "f1": 0.615,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": [
+    "A3"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.6,
+   "recall": 0.75,
+   "f1": 0.667,
+   "alerts": 10,
+   "false_alerts": 4,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 2,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A3"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.7,
+   "recall": 0.875,
+   "f1": 0.778,
+   "alerts": 10,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Explainer (no calendar)",
+   "precision": 0.389,
+   "recall": 0.875,
+   "f1": 0.538,
+   "alerts": 18,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.412,
+   "recall": 0.875,
+   "f1": 0.56,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 0.875,
+   "f1": 0.615,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Rolling z-score + calendar",
+   "precision": 1.0,
+   "recall": 0.875,
+   "f1": 0.933,
+   "alerts": 7,
+   "false_alerts": 0,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 3,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.778,
+   "recall": 0.875,
+   "f1": 0.824,
+   "alerts": 9,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Explainer (no calendar)",
+   "precision": 0.412,
+   "recall": 0.875,
+   "f1": 0.56,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.4,
+   "recall": 0.75,
+   "f1": 0.522,
+   "alerts": 15,
+   "false_alerts": 9,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.381,
+   "recall": 0.875,
+   "f1": 0.531,
+   "alerts": 21,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Isolation Forest",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Static threshold + calendar",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 0.875,
+   "f1": 0.757,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 4,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.727,
+   "recall": 0.875,
+   "f1": 0.794,
+   "alerts": 11,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.8,
+   "recall": 1.0,
+   "f1": 0.889,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Explainer (no calendar)",
+   "precision": 0.471,
+   "recall": 1.0,
+   "f1": 0.64,
+   "alerts": 17,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.45,
+   "recall": 0.875,
+   "f1": 0.594,
+   "alerts": 20,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Isolation Forest",
+   "precision": 0.529,
+   "recall": 0.875,
+   "f1": 0.66,
+   "alerts": 17,
+   "false_alerts": 8,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.818,
+   "recall": 0.875,
+   "f1": 0.846,
+   "alerts": 11,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 5,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.818,
+   "recall": 0.875,
+   "f1": 0.846,
+   "alerts": 11,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.615,
+   "recall": 1.0,
+   "f1": 0.762,
+   "alerts": 13,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Explainer (no calendar)",
+   "precision": 0.4,
+   "recall": 1.0,
+   "f1": 0.571,
+   "alerts": 20,
+   "false_alerts": 12,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.409,
+   "recall": 0.875,
+   "f1": 0.558,
+   "alerts": 22,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Isolation Forest",
+   "precision": 0.5,
+   "recall": 0.875,
+   "f1": 0.636,
+   "alerts": 20,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 6,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.769,
+   "recall": 0.875,
+   "f1": 0.819,
+   "alerts": 13,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.9,
+   "recall": 1.0,
+   "f1": 0.947,
+   "alerts": 10,
+   "false_alerts": 1,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Explainer (no calendar)",
+   "precision": 0.529,
+   "recall": 1.0,
+   "f1": 0.692,
+   "alerts": 17,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.316,
+   "recall": 0.75,
+   "f1": 0.444,
+   "alerts": 19,
+   "false_alerts": 13,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.368,
+   "recall": 0.875,
+   "f1": 0.519,
+   "alerts": 19,
+   "false_alerts": 12,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Isolation Forest",
+   "precision": 0.526,
+   "recall": 1.0,
+   "f1": 0.69,
+   "alerts": 19,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.7,
+   "recall": 0.875,
+   "f1": 0.778,
+   "alerts": 10,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 7,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.833,
+   "recall": 1.0,
+   "f1": 0.909,
+   "alerts": 12,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Explainer (with business calendar)",
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "alerts": 9,
+   "false_alerts": 0,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Explainer (no calendar)",
+   "precision": 0.562,
+   "recall": 1.0,
+   "f1": 0.72,
+   "alerts": 16,
+   "false_alerts": 7,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.261,
+   "recall": 0.75,
+   "f1": 0.387,
+   "alerts": 23,
+   "false_alerts": 17,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Isolation Forest",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Static threshold + calendar",
+   "precision": 0.273,
+   "recall": 0.75,
+   "f1": 0.4,
+   "alerts": 22,
+   "false_alerts": 16,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.727,
+   "recall": 0.875,
+   "f1": 0.794,
+   "alerts": 11,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 8,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 0.875,
+   "f1": 0.757,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 0.875,
+   "f1": 0.882,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 0.875,
+   "f1": 0.636,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.3,
+   "recall": 0.75,
+   "f1": 0.429,
+   "alerts": 20,
+   "false_alerts": 14,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Isolation Forest",
+   "precision": 0.476,
+   "recall": 1.0,
+   "f1": 0.645,
+   "alerts": 21,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.889,
+   "recall": 0.875,
+   "f1": 0.882,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 9,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "alerts": 15,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.571,
+   "recall": 1.0,
+   "f1": 0.727,
+   "alerts": 14,
+   "false_alerts": 6,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Explainer (no calendar)",
+   "precision": 0.364,
+   "recall": 1.0,
+   "f1": 0.533,
+   "alerts": 22,
+   "false_alerts": 14,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.231,
+   "recall": 0.75,
+   "f1": 0.353,
+   "alerts": 26,
+   "false_alerts": 20,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.391,
+   "recall": 0.875,
+   "f1": 0.541,
+   "alerts": 23,
+   "false_alerts": 14,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Isolation Forest",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 20,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Static threshold + calendar",
+   "precision": 0.25,
+   "recall": 0.75,
+   "f1": 0.375,
+   "alerts": 24,
+   "false_alerts": 18,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.692,
+   "recall": 0.875,
+   "f1": 0.773,
+   "alerts": 13,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.5,
+   "seed": 10,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.714,
+   "recall": 1.0,
+   "f1": 0.833,
+   "alerts": 14,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.818,
+   "recall": 1.0,
+   "f1": 0.9,
+   "alerts": 11,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Explainer (no calendar)",
+   "precision": 0.529,
+   "recall": 1.0,
+   "f1": 0.692,
+   "alerts": 17,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.389,
+   "recall": 0.875,
+   "f1": 0.538,
+   "alerts": 18,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Isolation Forest",
+   "precision": 0.55,
+   "recall": 1.0,
+   "f1": 0.71,
+   "alerts": 20,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.778,
+   "recall": 0.875,
+   "f1": 0.824,
+   "alerts": 9,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 1,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.846,
+   "recall": 1.0,
+   "f1": 0.917,
+   "alerts": 13,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.538,
+   "recall": 0.875,
+   "f1": 0.667,
+   "alerts": 13,
+   "false_alerts": 6,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Explainer (no calendar)",
+   "precision": 0.368,
+   "recall": 0.875,
+   "f1": 0.519,
+   "alerts": 19,
+   "false_alerts": 12,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.412,
+   "recall": 0.875,
+   "f1": 0.56,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A3"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Isolation Forest",
+   "precision": 0.524,
+   "recall": 1.0,
+   "f1": 0.688,
+   "alerts": 21,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.636,
+   "recall": 0.875,
+   "f1": 0.737,
+   "alerts": 11,
+   "false_alerts": 4,
+   "missed": [
+    "A3"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 2,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.786,
+   "recall": 1.0,
+   "f1": 0.88,
+   "alerts": 14,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.75,
+   "recall": 1.0,
+   "f1": 0.857,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Explainer (no calendar)",
+   "precision": 0.45,
+   "recall": 1.0,
+   "f1": 0.621,
+   "alerts": 20,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 0.875,
+   "f1": 0.615,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Rolling z-score + calendar",
+   "precision": 1.0,
+   "recall": 0.875,
+   "f1": 0.933,
+   "alerts": 8,
+   "false_alerts": 0,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 3,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.778,
+   "recall": 0.875,
+   "f1": 0.824,
+   "alerts": 9,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Explainer (no calendar)",
+   "precision": 0.412,
+   "recall": 0.875,
+   "f1": 0.56,
+   "alerts": 17,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.4,
+   "recall": 0.75,
+   "f1": 0.522,
+   "alerts": 15,
+   "false_alerts": 9,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.381,
+   "recall": 0.875,
+   "f1": 0.531,
+   "alerts": 21,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Isolation Forest",
+   "precision": 0.476,
+   "recall": 1.0,
+   "f1": 0.645,
+   "alerts": 21,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Static threshold + calendar",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 0.875,
+   "f1": 0.757,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 4,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.769,
+   "recall": 1.0,
+   "f1": 0.87,
+   "alerts": 13,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.8,
+   "recall": 1.0,
+   "f1": 0.889,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Explainer (no calendar)",
+   "precision": 0.471,
+   "recall": 1.0,
+   "f1": 0.64,
+   "alerts": 17,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Isolation Forest",
+   "precision": 0.556,
+   "recall": 1.0,
+   "f1": 0.714,
+   "alerts": 18,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.8,
+   "recall": 0.875,
+   "f1": 0.836,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 5,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.833,
+   "recall": 1.0,
+   "f1": 0.909,
+   "alerts": 12,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.643,
+   "recall": 1.0,
+   "f1": 0.783,
+   "alerts": 14,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Explainer (no calendar)",
+   "precision": 0.429,
+   "recall": 1.0,
+   "f1": 0.6,
+   "alerts": 21,
+   "false_alerts": 12,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.409,
+   "recall": 0.875,
+   "f1": 0.558,
+   "alerts": 22,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Isolation Forest",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 20,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 6,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.769,
+   "recall": 1.0,
+   "f1": 0.87,
+   "alerts": 13,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 1.0,
+   "f1": 0.941,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.316,
+   "recall": 0.75,
+   "f1": 0.444,
+   "alerts": 19,
+   "false_alerts": 13,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.368,
+   "recall": 0.875,
+   "f1": 0.519,
+   "alerts": 19,
+   "false_alerts": 12,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Isolation Forest",
+   "precision": 0.526,
+   "recall": 1.0,
+   "f1": 0.69,
+   "alerts": 19,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.7,
+   "recall": 0.875,
+   "f1": 0.778,
+   "alerts": 10,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 7,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.833,
+   "recall": 1.0,
+   "f1": 0.909,
+   "alerts": 12,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Explainer (with business calendar)",
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "alerts": 9,
+   "false_alerts": 0,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Explainer (no calendar)",
+   "precision": 0.562,
+   "recall": 1.0,
+   "f1": 0.72,
+   "alerts": 16,
+   "false_alerts": 7,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.261,
+   "recall": 0.75,
+   "f1": 0.387,
+   "alerts": 23,
+   "false_alerts": 17,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 1.0,
+   "f1": 0.643,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Static threshold + calendar",
+   "precision": 0.273,
+   "recall": 0.75,
+   "f1": 0.4,
+   "alerts": 22,
+   "false_alerts": 16,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.727,
+   "recall": 0.875,
+   "f1": 0.794,
+   "alerts": 11,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 8,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.692,
+   "recall": 1.0,
+   "f1": 0.818,
+   "alerts": 13,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 1.0,
+   "f1": 0.941,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.3,
+   "recall": 0.75,
+   "f1": 0.429,
+   "alerts": 20,
+   "false_alerts": 14,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Isolation Forest",
+   "precision": 0.45,
+   "recall": 1.0,
+   "f1": 0.621,
+   "alerts": 20,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.889,
+   "recall": 0.875,
+   "f1": 0.882,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 9,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.643,
+   "recall": 1.0,
+   "f1": 0.783,
+   "alerts": 14,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.6,
+   "recall": 1.0,
+   "f1": 0.75,
+   "alerts": 15,
+   "false_alerts": 6,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Explainer (no calendar)",
+   "precision": 0.391,
+   "recall": 1.0,
+   "f1": 0.562,
+   "alerts": 23,
+   "false_alerts": 14,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.231,
+   "recall": 0.75,
+   "f1": 0.353,
+   "alerts": 26,
+   "false_alerts": 20,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.364,
+   "recall": 0.875,
+   "f1": 0.514,
+   "alerts": 22,
+   "false_alerts": 14,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 1.0,
+   "f1": 0.643,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Static threshold + calendar",
+   "precision": 0.25,
+   "recall": 0.75,
+   "f1": 0.375,
+   "alerts": 24,
+   "false_alerts": 18,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 0.875,
+   "f1": 0.757,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 0.75,
+   "seed": 10,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.692,
+   "recall": 1.0,
+   "f1": 0.818,
+   "alerts": 13,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.8,
+   "recall": 1.0,
+   "f1": 0.889,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Isolation Forest",
+   "precision": 0.571,
+   "recall": 1.0,
+   "f1": 0.727,
+   "alerts": 21,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.8,
+   "recall": 0.875,
+   "f1": 0.836,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 1,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.857,
+   "recall": 1.0,
+   "f1": 0.923,
+   "alerts": 14,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.6,
+   "recall": 1.0,
+   "f1": 0.75,
+   "alerts": 15,
+   "false_alerts": 6,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Explainer (no calendar)",
+   "precision": 0.429,
+   "recall": 1.0,
+   "f1": 0.6,
+   "alerts": 21,
+   "false_alerts": 12,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 1.0,
+   "f1": 0.615,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Isolation Forest",
+   "precision": 0.524,
+   "recall": 1.0,
+   "f1": 0.688,
+   "alerts": 21,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 2,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.786,
+   "recall": 1.0,
+   "f1": 0.88,
+   "alerts": 14,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Explainer (no calendar)",
+   "precision": 0.4,
+   "recall": 1.0,
+   "f1": 0.571,
+   "alerts": 20,
+   "false_alerts": 12,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Isolation Forest",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 20,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Static threshold + calendar",
+   "precision": 0.5,
+   "recall": 0.75,
+   "f1": 0.6,
+   "alerts": 12,
+   "false_alerts": 6,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Rolling z-score + calendar",
+   "precision": 1.0,
+   "recall": 0.875,
+   "f1": 0.933,
+   "alerts": 8,
+   "false_alerts": 0,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 3,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.769,
+   "recall": 1.0,
+   "f1": 0.87,
+   "alerts": 13,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.8,
+   "recall": 1.0,
+   "f1": 0.889,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Explainer (no calendar)",
+   "precision": 0.444,
+   "recall": 1.0,
+   "f1": 0.615,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.4,
+   "recall": 0.75,
+   "f1": 0.522,
+   "alerts": 15,
+   "false_alerts": 9,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.381,
+   "recall": 0.875,
+   "f1": 0.531,
+   "alerts": 21,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Isolation Forest",
+   "precision": 0.45,
+   "recall": 1.0,
+   "f1": 0.621,
+   "alerts": 20,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Static threshold + calendar",
+   "precision": 0.462,
+   "recall": 0.75,
+   "f1": 0.571,
+   "alerts": 13,
+   "false_alerts": 7,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.667,
+   "recall": 0.875,
+   "f1": 0.757,
+   "alerts": 12,
+   "false_alerts": 4,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 4,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.75,
+   "recall": 1.0,
+   "f1": 0.857,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.8,
+   "recall": 1.0,
+   "f1": 0.889,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Explainer (no calendar)",
+   "precision": 0.471,
+   "recall": 1.0,
+   "f1": 0.64,
+   "alerts": 17,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Isolation Forest",
+   "precision": 0.556,
+   "recall": 1.0,
+   "f1": 0.714,
+   "alerts": 18,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.8,
+   "recall": 0.875,
+   "f1": 0.836,
+   "alerts": 10,
+   "false_alerts": 2,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 5,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.833,
+   "recall": 1.0,
+   "f1": 0.909,
+   "alerts": 12,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.615,
+   "recall": 1.0,
+   "f1": 0.762,
+   "alerts": 13,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Explainer (no calendar)",
+   "precision": 0.4,
+   "recall": 1.0,
+   "f1": 0.571,
+   "alerts": 20,
+   "false_alerts": 12,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.333,
+   "recall": 0.75,
+   "f1": 0.462,
+   "alerts": 18,
+   "false_alerts": 12,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.409,
+   "recall": 0.875,
+   "f1": 0.558,
+   "alerts": 22,
+   "false_alerts": 13,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Isolation Forest",
+   "precision": 0.524,
+   "recall": 1.0,
+   "f1": 0.688,
+   "alerts": 21,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.75,
+   "recall": 0.875,
+   "f1": 0.808,
+   "alerts": 12,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 6,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.786,
+   "recall": 1.0,
+   "f1": 0.88,
+   "alerts": 14,
+   "false_alerts": 3,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 1.0,
+   "f1": 0.941,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.316,
+   "recall": 0.75,
+   "f1": 0.444,
+   "alerts": 19,
+   "false_alerts": 13,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.4,
+   "recall": 0.875,
+   "f1": 0.549,
+   "alerts": 20,
+   "false_alerts": 12,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Isolation Forest",
+   "precision": 0.55,
+   "recall": 1.0,
+   "f1": 0.71,
+   "alerts": 20,
+   "false_alerts": 9,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.727,
+   "recall": 0.875,
+   "f1": 0.794,
+   "alerts": 11,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 7,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.846,
+   "recall": 1.0,
+   "f1": 0.917,
+   "alerts": 13,
+   "false_alerts": 2,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Explainer (with business calendar)",
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "alerts": 8,
+   "false_alerts": 0,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Explainer (no calendar)",
+   "precision": 0.533,
+   "recall": 1.0,
+   "f1": 0.696,
+   "alerts": 15,
+   "false_alerts": 7,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.261,
+   "recall": 0.75,
+   "f1": 0.387,
+   "alerts": 23,
+   "false_alerts": 17,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.421,
+   "recall": 0.875,
+   "f1": 0.569,
+   "alerts": 19,
+   "false_alerts": 11,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Isolation Forest",
+   "precision": 0.474,
+   "recall": 1.0,
+   "f1": 0.643,
+   "alerts": 19,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Static threshold + calendar",
+   "precision": 0.273,
+   "recall": 0.75,
+   "f1": 0.4,
+   "alerts": 22,
+   "false_alerts": 16,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.727,
+   "recall": 0.875,
+   "f1": 0.794,
+   "alerts": 11,
+   "false_alerts": 3,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 8,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.692,
+   "recall": 1.0,
+   "f1": 0.818,
+   "alerts": 13,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.889,
+   "recall": 1.0,
+   "f1": 0.941,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Explainer (no calendar)",
+   "precision": 0.5,
+   "recall": 1.0,
+   "f1": 0.667,
+   "alerts": 16,
+   "false_alerts": 8,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.3,
+   "recall": 0.75,
+   "f1": 0.429,
+   "alerts": 20,
+   "false_alerts": 14,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.444,
+   "recall": 0.875,
+   "f1": 0.589,
+   "alerts": 18,
+   "false_alerts": 10,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Isolation Forest",
+   "precision": 0.476,
+   "recall": 1.0,
+   "f1": 0.645,
+   "alerts": 21,
+   "false_alerts": 11,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Static threshold + calendar",
+   "precision": 0.353,
+   "recall": 0.75,
+   "f1": 0.48,
+   "alerts": 17,
+   "false_alerts": 11,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.889,
+   "recall": 0.875,
+   "f1": 0.882,
+   "alerts": 9,
+   "false_alerts": 1,
+   "missed": [
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 9,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.667,
+   "recall": 1.0,
+   "f1": 0.8,
+   "alerts": 15,
+   "false_alerts": 5,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Explainer (with business calendar)",
+   "precision": 0.571,
+   "recall": 1.0,
+   "f1": 0.727,
+   "alerts": 14,
+   "false_alerts": 6,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Explainer (no calendar)",
+   "precision": 0.364,
+   "recall": 1.0,
+   "f1": 0.533,
+   "alerts": 22,
+   "false_alerts": 14,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Static threshold (>1.5x 7-day mean)",
+   "precision": 0.231,
+   "recall": 0.75,
+   "f1": 0.353,
+   "alerts": 26,
+   "false_alerts": 20,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Rolling z-score (mean/std, z>3)",
+   "precision": 0.391,
+   "recall": 1.0,
+   "f1": 0.562,
+   "alerts": 23,
+   "false_alerts": 14,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Isolation Forest",
+   "precision": 0.524,
+   "recall": 1.0,
+   "f1": 0.688,
+   "alerts": 21,
+   "false_alerts": 10,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Static threshold + calendar",
+   "precision": 0.25,
+   "recall": 0.75,
+   "f1": 0.375,
+   "alerts": 24,
+   "false_alerts": 18,
+   "missed": [
+    "A3",
+    "A7"
+   ]
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Rolling z-score + calendar",
+   "precision": 0.692,
+   "recall": 1.0,
+   "f1": 0.818,
+   "alerts": 13,
+   "false_alerts": 4,
+   "missed": []
+  },
+  {
+   "scale": 1.0,
+   "seed": 10,
+   "method": "Isolation Forest + calendar",
+   "precision": 0.733,
+   "recall": 1.0,
+   "f1": 0.846,
+   "alerts": 15,
+   "false_alerts": 4,
+   "missed": []
+  }
+ ]
+}

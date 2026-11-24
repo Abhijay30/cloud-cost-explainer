@@ -1,0 +1,18 @@
+[
+  {
+    "id": "E1",
+    "name": "Monsoon Mega Sale (planned marketing campaign)",
+    "start": "2026-07-10",
+    "end": "2026-07-14",
+    "scope": "prod-retail traffic-linked services",
+    "note": "Marketing expected ~35-45% more traffic on customer-facing services."
+  },
+  {
+    "id": "E2",
+    "name": "Quarterly Redshift resize for Q2 close",
+    "start": "2026-07-01",
+    "end": "2026-07-03",
+    "scope": "data-platform / Amazon Redshift",
+    "note": "Finance close: cluster temporarily doubled from 4 to 8 nodes."
+  }
+]

@@ -1,0 +1,186 @@
+<meta name="dash-one-writer">
+<meta name="dash-form" content="dashboard">
+<style>
+  .cce { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: flex; flex-direction: column; gap: var(--cds-gap-xl); }
+  .cce h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .cce h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-xs); }
+  .cce h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .cce-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 var(--cds-gap-sm); }
+  .cce-lede { font-size: var(--cds-font-size-body); line-height: 1.55; margin: 0; max-width: 62em; }
+  .cce-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.5; }
+  .cce-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .cce-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--cds-gap-md); }
+  .cce-kpi-label { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .cce-kpi-value { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2rem; font-variant-numeric: tabular-nums; margin: var(--cds-gap-xs) 0; min-height: 1.2em; }
+  .cce-kpi-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); min-height: 1.2em; }
+  .cce-bad { color: var(--color-bad); }
+  .cce-ok { color: var(--color-ok); }
+  .cce-warn { color: var(--color-warn); }
+  .cce-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--cds-gap-md); flex-wrap: wrap; }
+  .cce-chart { position: relative; width: 100%; min-height: 260px; }
+  .cce-chart svg text { font-size: var(--cds-font-size-caption); fill: var(--cds-text-secondary); font-family: var(--font-anthropic-sans); }
+  .cce-chart .domain { stroke: var(--cds-chart-axis); }
+  .cce-chart .tick line { stroke: var(--cds-chart-grid); }
+  .cce-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); font-size: var(--cds-font-size-caption); line-height: 1.45; max-width: 260px; z-index: 5; }
+  .cce-tip b { font-weight: var(--cds-font-weight-medium); }
+  .cce-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: var(--cds-gap-sm); }
+  .cce-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .cce-sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+  .cce-sw-line { display: inline-block; width: 16px; height: 0; border-top: 2px dashed var(--cds-chart-reference); }
+  .cce-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--cds-gap-md); align-items: start; }
+  @container (max-width: 760px) { .cce-split { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .cce-split { grid-template-columns: 1fr; } }
+  .cce-filters { display: flex; gap: var(--cds-gap-xs); flex-wrap: wrap; margin-bottom: var(--cds-gap-sm); }
+  .cce-chip { font: inherit; font-size: var(--cds-font-size-caption); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: transparent; color: var(--color-fg); cursor: pointer; }
+  .cce-chip.is-on { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .cce-scroll { overflow-x: auto; }
+  .cce table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .cce th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .cce td { padding: 7px 8px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .cce td.num, .cce th.num { text-align: right; }
+  .cce-alist tbody tr { cursor: pointer; }
+  .cce-alist tbody tr:hover { background: color-mix(in srgb, var(--color-fg) 5%, transparent); }
+  .cce-alist tbody tr.is-sel { background: color-mix(in srgb, var(--color-fg) 9%, transparent); }
+  .cce-tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+  .cce-detail-figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--cds-gap-sm); margin: var(--cds-gap-md) 0; }
+  .cce-fig-l { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .cce-fig-v { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+  .cce-explain { line-height: 1.6; margin: var(--cds-gap-sm) 0; }
+  .cce-checks { margin: var(--cds-gap-xs) 0 0; padding-left: 1.2em; line-height: 1.55; }
+  .cce-bars { display: grid; grid-template-columns: max-content 1fr max-content; gap: 6px 10px; align-items: center; font-size: var(--cds-font-size-caption); margin-top: var(--cds-gap-xs); }
+  .cce-bar-track { height: 10px; background: color-mix(in srgb, var(--color-fg) 7%, transparent); border-radius: 5px; overflow: hidden; }
+  .cce-bar-fill { height: 100%; border-radius: 5px; }
+  .cce-verdict { margin-top: var(--cds-gap-md); padding: var(--cds-pad-sm) var(--cds-pad-md); border-left: 3px solid var(--color-border-line); font-size: var(--cds-font-size-caption); line-height: 1.5; }
+  .cce details summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
+  .cce details p, .cce details li { line-height: 1.55; font-size: var(--cds-font-size-caption); }
+  @media print { .cce-filters, .cce-acct { display: none; } }
+</style>
+
+<div class="cce">
+  <header id="top">
+    <h1>Cloud Cost Explainer</h1>
+    <p class="cce-sub">Northwind Cloud Retail (a made-up company) · AWS bill in the FinOps FOCUS format · 1 Apr – 30 Sep 2026 · synthetic data with planted anomalies</p>
+    <p class="cce-lede" id="takeaway" data-draw="takeaway">—</p>
+  </header>
+
+  <section class="cce-kpis" id="kpis">
+    <div class="cce-card" id="kpi-spend">
+      <div class="cce-kpi-label">Total cloud spend · Apr–Sep 2026</div>
+      <div class="cce-kpi-value dash-skeleton" data-draw="kpi-spend" data-source="kpi" data-field="total_spend" data-row="0">—</div>
+      <div class="cce-kpi-note" data-draw="kpi-spend-note">—</div>
+    </div>
+    <div class="cce-card" id="kpi-alerts">
+      <div class="cce-kpi-label">Anomaly alerts raised · Apr–Sep 2026</div>
+      <div class="cce-kpi-value dash-skeleton" data-draw="kpi-alerts" data-source="kpi" data-field="alerts" data-row="0">—</div>
+      <div class="cce-kpi-note" data-draw="kpi-alerts-note">—</div>
+    </div>
+    <div class="cce-card" id="kpi-excess">
+      <div class="cce-kpi-label">Extra spend inside alerts · vs each service's usual level</div>
+      <div class="cce-kpi-value dash-skeleton" data-draw="kpi-excess" data-source="kpi" data-field="alert_excess" data-row="0">—</div>
+      <div class="cce-kpi-note" data-draw="kpi-excess-note">—</div>
+    </div>
+    <div class="cce-card" id="kpi-f1">
+      <div class="cce-kpi-label">Detection F1 score · against the 8 planted anomalies</div>
+      <div class="cce-kpi-value dash-skeleton" data-draw="kpi-f1" data-source="evaluation" data-field="f1" data-where="method=Explainer (with business calendar)">—</div>
+      <div class="cce-kpi-note" data-draw="kpi-f1-note">—</div>
+    </div>
+  </section>
+
+  <section class="cce-card" id="daily">
+    <div class="cce-head">
+      <div>
+        <h2>Daily spend, with the periods the explainer flagged</h2>
+        <div class="cce-muted">Red bands are alerts. Grey bands are spikes that match a planned business event, so no alert was raised.</div>
+      </div>
+      <select class="dash-select cce-acct" aria-label="Account" data-draw="acct" data-source="daily"></select>
+    </div>
+    <div class="cce-chart" data-draw="daily-chart" data-source="daily anomalies" style="min-height:280px"></div>
+    <div class="cce-legend">
+      <span><i class="cce-sw" data-sw="line"></i>Daily spend</span>
+      <span><i class="cce-sw" data-sw="alert"></i>Alert</span>
+      <span><i class="cce-sw" data-sw="expected"></i>Expected (business calendar)</span>
+    </div>
+  </section>
+
+  <section id="anomalies">
+    <h2>Anomalies and what caused them</h2>
+    <p class="cce-muted">Pick a row to see the explanation, the cost against its usual level, and what to check.</p>
+    <div class="cce-split">
+      <div class="cce-card" id="anomaly-list">
+        <div class="cce-filters" role="group" aria-label="Show">
+          <button type="button" class="cce-chip is-on" data-filter="alert">Alerts</button>
+          <button type="button" class="cce-chip" data-filter="expected">Expected</button>
+          <button type="button" class="cce-chip" data-filter="all">All</button>
+        </div>
+        <div class="cce-scroll">
+          <table class="cce-alist" data-source="anomalies" data-row-key="id">
+            <thead>
+              <tr>
+                <th data-field="start">Started</th>
+                <th data-field="service">Service</th>
+                <th data-field="account">Account</th>
+                <th class="num" data-field="excess_cost">Extra cost</th>
+              </tr>
+            </thead>
+            <tbody data-draw="alist"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cce-card" id="anomaly-detail">
+        <div data-draw="detail" data-source="anomalies series" style="min-height:420px">—</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cce-card" id="services">
+    <h2>Where the money goes</h2>
+    <div class="cce-muted">Usage spend by service, Apr–Sep 2026, worked out from every row of the bill.</div>
+    <div class="cce-chart" data-draw="svc-chart" data-source="by_service" style="min-height:340px"></div>
+  </section>
+
+  <section class="cce-card" id="evaluation">
+    <h2>How good is the detection?</h2>
+    <p class="cce-muted">Each method was scored on the same bill. A correct alert overlaps a planted anomaly on the same service line; anything else, including the planned sale and the Redshift resize, is a false alarm. Recall is the share of the 8 planted anomalies caught.</p>
+    <div class="cce-scroll">
+      <table data-source="evaluation" data-row-key="method">
+        <thead>
+          <tr>
+            <th data-field="method">Method</th>
+            <th class="num" data-field="alerts">Alerts</th>
+            <th class="num" data-field="false_alerts">False alarms</th>
+            <th class="num" data-field="precision">Precision</th>
+            <th class="num" data-field="recall">Recall</th>
+            <th class="num" data-field="f1">F1</th>
+            <th class="num" data-field="mean_delay_days">Delay (days)</th>
+            <th data-field="missed">Missed</th>
+          </tr>
+        </thead>
+        <tbody data-draw="eval-table"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:var(--cds-gap-lg)" id="robustness">F1 as the anomalies get smaller (mean of 10 random datasets each)</h3>
+    <p class="cce-muted">The same eight faults were planted at 25%, 50%, 75% and 100% of their size, each time with new random noise. All methods here use the business calendar, so the gap between them comes from detection alone.</p>
+    <div class="cce-chart" data-draw="rob-chart" data-source="robustness" style="min-height:280px"></div>
+    <div class="cce-legend">
+      <span><i class="cce-sw" data-sw="m0"></i>Explainer</span>
+      <span><i class="cce-sw" data-sw="m1"></i>Isolation Forest</span>
+      <span><i class="cce-sw" data-sw="m2"></i>Rolling z-score</span>
+      <span><i class="cce-sw" data-sw="m3"></i>Static threshold</span>
+    </div>
+    <p class="cce-muted" data-draw="rob-note">—</p>
+  </section>
+
+  <details class="cce-card" id="method">
+    <summary>How the explainer works, and the limits of this test</summary>
+    <ol>
+      <li><b>Baseline.</b> Every service line (account × service × region × usage type) gets its own expected cost for each day: the median of the last 28 normal days, adjusted for weekdays versus weekends. Days already flagged are left out, so an ongoing problem does not become "normal".</li>
+      <li><b>Detection.</b> A day is flagged when its cost sits more than 4 robust standard deviations above that baseline and is at least $40 above it. A second test catches slow creep: the last 7 days average 25% above the month before and keep rising.</li>
+      <li><b>Explanation.</b> Flagged days are joined into one event. The explainer measures the extra cost, splits it into a usage change and a price change, works out its share of the account's increase, and matches it against a playbook of nine known cost patterns (for example forgotten GPUs, NAT Gateway traffic, Savings Plan expiry). The matched pattern supplies the likely cause and the checks.</li>
+      <li><b>Business calendar.</b> Spikes during planned events, such as a sale, are kept but marked as expected instead of alerting.</li>
+    </ol>
+    <p><b>Limits.</b> The bill is synthetic and the anomalies were planted by the same author who wrote the detector and the playbook, so the scores show the method works as designed, not how it would do on a real bill. The explanations are rule-based templates, not a language model. On real data the playbook would need tuning, and planned events would need to be kept up to date.</p>
+  </details>
+</div>
+<script src="app.js"></script>

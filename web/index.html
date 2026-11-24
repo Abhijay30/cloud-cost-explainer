@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloud Cost Explainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@600;700&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work tool: a FinOps analyst's bench, plain and exact
+   IDEA a lab poster: a deep blue title band carries the input, results sit on white like plates
+   PICTURE the daily spend line with every anomaly marked in magenta, large, under the finding
+   COLOUR oxford blue band, white plates, magenta for anomalies, quiet grey for planned events
+   TYPE Red Hat Display for titles and figures, Red Hat Text for everything else
+   LAYOUT band: title left, drop zone right; then finding, figures, chart; list beside detail; phone stacks */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#08112b);--ink:light-dark(#121a2e,#e9edf8);--muted:light-dark(#566078,#9ba7c6);
+--line:light-dark(#e2e6ef,#1e2a4c);--plate:light-dark(#f5f7fb,#0e1a3b);--band:light-dark(#0b1f4b,#050c22);--bandink:#f2f5ff;
+--mag:light-dark(#d4105a,#ff5c97);--magsoft:light-dark(#fde3ee,#4a1430);--blue:light-dark(#1f3f8f,#8eb0ff);--plan:light-dark(#c9ced9,#3a4566);
+--ok:light-dark(#0d7a4e,#4fd39a);--warn:light-dark(#a95300,#f5b452);
+--disp:"Red Hat Display",system-ui,sans-serif;--text:"Red Hat Text",system-ui,sans-serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--text);overflow-x:clip}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;margin:0;line-height:1.08}
+h1{font-size:clamp(32px,4.4vw,48px)}
+h2{font-size:clamp(22px,2.6vw,30px);text-wrap:balance}
+h3{font-size:19px}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(24px,3.6vw,52px) max(5vw,16px)}
+.top{background:var(--band);color:var(--bandink)}
+.top .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.top p{color:#c6d0ee;max-width:34em;margin:14px 0 0}
+.drop{background:#fff;color:#121a2e;border-radius:14px;padding:22px;border:2px dashed #9fb0dc;display:grid;gap:12px;transition:border-color .15s,background .15s}
+.drop.over{border-color:#d4105a;background:#fff4f8}
+.drop strong{font-family:var(--disp);font-size:20px}
+.drop small{color:#566078}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:600}
+.btn:hover{border-color:var(--blue)}
+.btn:focus-visible,.chip:focus-visible,select:focus-visible,input:focus-visible,tr:focus-visible{outline:3px solid var(--mag);outline-offset:2px}
+.btn.main{background:#d4105a;border-color:#d4105a;color:#fff}
+.btn.main:hover{background:#b30c4c}
+.drop .btn{background:#fff;color:#121a2e;border-color:#c8d0e4}
+.drop .btn.main{background:#d4105a;color:#fff;border-color:#d4105a}
+.status{font-size:14px;color:#566078;min-height:1.4em}
+.status.err{color:#b3123f;font-weight:600}
+.bar{height:6px;background:#e5e9f3;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#d4105a;transition:width .2s}
+.src{color:var(--muted);font-size:14px;margin:10px 0 0}
+.tag{display:inline-block;font-size:13px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--magsoft);color:var(--mag)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:12px;margin:22px 0}
+.kpi{background:var(--plate);border-radius:12px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--disp);font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.02em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:14px}
+.kpi .k{color:var(--ink);font-size:14px;font-weight:600}
+.plate{background:var(--plate);border-radius:14px;padding:clamp(14px,2vw,22px)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px;margin-bottom:8px}
+.muted{color:var(--muted);font-size:14px}
+select,input[type=text],input[type=number],input[type=date]{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:0 10px;font-size:16px}
+.fig{position:relative;min-height:320px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.fig.small{min-height:210px}
+svg text{font:13px var(--text);fill:var(--muted)}
+.tip{position:absolute;pointer-events:none;background:var(--bg);border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.14);border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.45;max-width:280px;z-index:3}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px;align-items:start;margin-top:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.chip{min-height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:600;font-size:14px}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:600;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.list{max-height:640px;overflow:auto}
+.list tbody tr{cursor:pointer}
+.list tbody tr:hover{background:color-mix(in srgb,var(--blue) 7%,transparent)}
+.list tbody tr.sel{background:color-mix(in srgb,var(--mag) 10%,transparent)}
+.sub{color:var(--muted);font-size:13px}
+.sev{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;border:1px solid currentColor;margin-top:3px}
+.sev.high{color:var(--mag)}.sev.medium{color:var(--warn)}.sev.low{color:var(--muted)}.sev.expected{color:var(--muted);border-style:dashed}
+.detail{position:sticky;top:12px}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(8em,1fr));gap:10px;margin:14px 0}
+.figs b{display:block;font-family:var(--disp);font-size:22px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.figs span{font-size:13px;color:var(--muted)}
+.explain{line-height:1.65;margin:10px 0}
+.bars{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;gap:8px 12px;align-items:center;font-size:14px}
+.track{height:12px;border-radius:6px;background:color-mix(in srgb,var(--ink) 8%,transparent);overflow:hidden}
+.track i{display:block;height:100%;border-radius:6px}
+.checks{margin:6px 0 0;padding-left:1.2em;line-height:1.6}
+.truth{margin-top:14px;padding:10px 12px;border-left:3px solid var(--ok);background:var(--bg);font-size:14px;border-radius:0 8px 8px 0}
+.svc{display:grid;grid-template-columns:minmax(8em,max-content) minmax(0,1fr) max-content;gap:8px 12px;align-items:center;font-size:14px}
+.svc .track{height:18px}
+.setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22em),1fr));gap:16px;margin-top:16px}
+.setup>.plate.wide{grid-column:1/-1}
+.form{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 12px;align-items:center;font-size:14px}
+.ev td{padding:5px 4px;border:0}
+.ev input{width:100%;min-width:7em}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+details summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details li,details p{line-height:1.6}
+.hide{display:none!important}
+@media(max-width:860px){.top .wrap,.split{grid-template-columns:1fr}.detail{position:static}}
+@media(max-width:600px){table{font-size:13px}th,td{padding:6px 4px}.list{max-height:none}.form{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.bar i,.drop{transition:none}}
+</style>
+</head>
+<body>
+<header class="band top">
+  <div class="wrap">
+    <div>
+      <h1>Cloud Cost Explainer</h1>
+      <p>Drop in a cloud billing export and every unusual spike is found and explained: how much it cost, whether usage or price moved, and what to check first. Your file is read in this browser and never uploaded.</p>
+    </div>
+    <div class="drop" id="drop">
+      <strong>Drop a billing CSV here</strong>
+      <small>FOCUS exports, AWS Cost and Usage Reports, Azure and Google Cloud cost exports. Plain .csv or .csv.gz, daily or hourly.</small>
+      <div class="row">
+        <button class="btn main" id="pick" type="button">Choose file</button>
+        <button class="btn" id="sample" type="button">Use the sample bill</button>
+        <input type="file" id="file" accept=".csv,.gz,.tsv,.txt,text/csv" hidden>
+      </div>
+      <div class="bar" id="bar" hidden><i></i></div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="band" id="summary">
+    <div class="wrap">
+      <h2 id="finding">Loading the sample bill…</h2>
+      <p class="src" id="source"></p>
+      <div class="kpis" id="kpis"></div>
+      <div class="plate">
+        <div class="head">
+          <div><h3>Daily spend</h3><div class="muted">Magenta marks an alert, grey a planned event. Click a band to open it.</div></div>
+          <select id="acct" aria-label="Account"><option value="">All accounts</option></select>
+        </div>
+        <div class="fig" id="daily"></div>
+        <div class="legend"><span><i style="background:var(--blue)"></i>Daily spend</span><span><i style="background:var(--mag);opacity:.35"></i>Alert</span><span><i style="background:var(--plan)"></i>Planned event</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="anomalies" style="padding-top:0">
+    <div class="wrap">
+      <h2>Anomalies and what caused them</h2>
+      <div class="split">
+        <div class="plate">
+          <div class="chips" role="group" aria-label="Show">
+            <button class="chip on" data-f="alert" type="button">Alerts</button>
+            <button class="chip" data-f="expected" type="button">Planned</button>
+            <button class="chip" data-f="all" type="button">All</button>
+            <button class="chip" id="sort" type="button">Sort: by date</button>
+          </div>
+          <div class="list scroll"><table>
+            <thead><tr><th>Started</th><th>Where</th><th class="n">Extra cost</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table></div>
+          <div class="row" style="margin-top:12px"><button class="btn" id="copycsv" type="button">Copy anomalies as CSV</button><span class="muted" id="copied"></span></div>
+        </div>
+        <div class="plate detail" id="detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="plate">
+        <div class="head"><div><h3>Where the money goes</h3><div class="muted">Usage spend by service over the whole file</div></div></div>
+        <div class="svc" id="svc"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="setup" style="padding-top:0">
+    <div class="wrap">
+      <h2>Columns, sensitivity and planned events</h2>
+      <p class="muted">Change any of these and press the button under it. They are remembered in this browser.</p>
+      <div class="setup">
+        <div class="plate">
+          <h3>Columns in your file</h3>
+          <p class="muted" id="mapnote">Found automatically. Fix any that are wrong, then read the file again.</p>
+          <div class="form" id="map"></div>
+          <div class="row" style="margin-top:12px"><button class="btn main" id="remap" type="button">Read the file again</button></div>
+        </div>
+        <div class="plate">
+          <h3>Sensitivity</h3>
+          <p class="muted">Lower the threshold or the minimum to catch smaller problems, at the cost of more false alarms.</p>
+          <div class="form">
+            <label for="pz">Flag at robust z above</label><input type="number" id="pz" min="2" max="10" step="0.5">
+            <label for="pm">Minimum extra per day</label><input type="number" id="pm" min="0" step="5">
+            <label for="pw">Baseline window (days)</label><input type="number" id="pw" min="14" max="90" step="1">
+          </div>
+          <div class="row" style="margin-top:12px"><button class="btn main" id="rerun" type="button">Re-analyse</button><button class="btn" id="reset" type="button">Defaults</button></div>
+        </div>
+        <div class="plate wide">
+          <h3>Planned events</h3>
+          <p class="muted">Sales, migrations, load tests. Spikes inside these dates are shown but not alerted. Leave account or service empty to match all.</p>
+          <div class="scroll"><table class="ev"><thead><tr><th>Name</th><th>From</th><th>To</th><th>Account</th><th>Service contains</th><th></th></tr></thead><tbody id="evrows"></tbody></table></div>
+          <div class="row" style="margin-top:12px"><button class="btn" id="addev" type="button">Add event</button><button class="btn main" id="rerun2" type="button">Re-analyse</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="band">
+    <div class="wrap">
+      <details>
+        <summary>How it works</summary>
+        <ol>
+          <li>Rows are grouped into service lines (account × service × region × usage type) and summed by day. Only usage rows count when the file has a charge type column; purchases, taxes and credits are totalled separately.</li>
+          <li>Each line gets an expected cost per day: the median of its last normal days, adjusted for weekdays versus weekends. Days already flagged are left out, so an ongoing problem does not become normal.</li>
+          <li>A day is flagged when it sits above the robust z threshold and is at least the minimum extra per day above normal. A second test catches slow creep: a week averaging 25% above the month before while still rising. A line that appears from nothing is flagged as new spend.</li>
+          <li>Each event is explained: extra cost, usage or price (when the file has quantities), its share of the account's increase, and the closest of ten known cost patterns with checks to run.</li>
+        </ol>
+        <p>A line needs about five weeks of history before it can be scored. Lines whose highest day is below the minimum extra per day are skipped. The sample bill is synthetic, for a made-up retailer, with eight planted problems.</p>
+      </details>
+    </div>
+  </footer>
+</main>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
