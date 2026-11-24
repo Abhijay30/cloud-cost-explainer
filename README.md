@@ -38,3 +38,9 @@ python3 build_sample.py      # sample bill for the website -> web/sample.json
 ## Main result (seed 42)
 
 8/8 planted anomalies found, 2 false alarms (precision 0.80, recall 1.00, F1 0.89). Every detected anomaly got the right pattern and the right usage-vs-price label. Across 40 datasets, detection is on par with Isolation Forest given the same business calendar; the explanation layer is where the value is.
+
+## Limits
+
+- The bill is synthetic and the anomalies were planted by the same author who wrote the detector and the pattern playbook, so the scores show the method works as designed, not how it does on real bills.
+- On detection alone it is on par with Isolation Forest given the same business calendar; the contribution is the explanation layer (usage-vs-price split, account share, pattern match and checks).
+- Explanations are rule-based templates. A cause the playbook does not contain gets the nearest pattern.
