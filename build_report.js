@@ -128,6 +128,7 @@ body.push(H2('1.2 Contributions'));
   'A volume-versus-rate decomposition that distinguishes "we used more" from "we paid more per unit", which identified the Savings Plan expiry case that a plain threshold missed.',
   'An honest evaluation across 40 datasets that includes baselines given the same business calendar, so the gain from the calendar is not credited to the detector.',
   'An interactive dashboard (Claude Data artifact) showing spend, anomalies, explanations and scores.',
+  'A public website where anyone can drop in their own billing export (FOCUS, AWS, Azure or Google Cloud) and get the same analysis, run entirely in the browser.',
 ].forEach((t) => body.push(bullet(t)));
 
 // 2. Background
@@ -192,12 +193,13 @@ body.push(table(['ID', 'Pattern', 'Signature (simplified)'], [
   ['P07', 'Database I/O or query regression', 'database · more usage · I/O or read usage type'],
   ['P08', 'Organic traffic growth', 'customer-facing · more usage · drift · prod'],
   ['P09', 'Storage accumulation', 'storage · more usage · drift/step'],
+  ['P10', 'New spend on a line that had none', 'website only: a line that appears after the first 28 days'],
 ], [600, 3000, 4400]));
-body.push(caption('Table 3. The pattern playbook. Weights: family 3, effect 3, usage-type hint 2, shape 2, environment 1; a mismatch on family or effect counts against the entry.'));
+body.push(caption('Table 3. The pattern playbook. P10 exists only in the website version (Section 6.2), because the synthetic bill has no new lines. Weights: family 3, effect 3, usage-type hint 2, shape 2, environment 1; a mismatch on family or effect counts against the entry.'));
 body.push(H2('4.4 Business calendar'));
 body.push(P(`Events that overlap a planned business event in the right scope (an account, or an account and service) are kept and explained, but marked "expected" instead of raising an alert. The same filter was applied to every baseline in the evaluation, so the comparison measures the detectors, not the calendar.`));
 body.push(H2('4.5 Implementation'));
-body.push(P(`The system is written in Python (pandas, NumPy, SciPy, scikit-learn). ~generate_data.py~ builds the bill, ~engine.py~ detects, explains and evaluates, ~playbook.py~ holds the patterns, ~robustness.py~ runs the 40-dataset sweep, and ~export_dashboard.py~ writes the dashboard's data files. A full run on one dataset takes about 7 seconds. The dashboard is a Claude Data artifact built with d3; every number on it is linked to the data file it came from.`));
+body.push(P(`The system is written in Python (pandas, NumPy, SciPy, scikit-learn). ~generate_data.py~ builds the bill, ~engine.py~ detects, explains and evaluates, ~playbook.py~ holds the patterns, ~robustness.py~ runs the 40-dataset sweep, and ~export_dashboard.py~ writes the dashboard's data files. A full run on one dataset takes about 7 seconds. The results dashboard is a Claude Data artifact built with d3. The upload website runs the same engine ported to JavaScript (Section 6.2). The code is published at github.com/Abhijay30/cloud-cost-explainer.`));
 
 // 5. Results
 body.push(H1('5. Results'));
@@ -234,9 +236,22 @@ body.push(caption('Table 6. Explanation accuracy on the main dataset.'));
 const e25 = ROB.summary['0.25']._explanation;
 body.push(P(`On the main dataset every detected anomaly got the correct pattern and the correct usage-versus-price label. Across all 40 datasets, pattern accuracy was 100% at 75% and 100% size and ${(e25.pattern_accuracy * 100).toFixed(1)}% at 25% size (${Math.round(e25.detected * (1 - e25.pattern_accuracy))} errors in ${e25.detected} detected anomalies). This number should be read with care: the playbook and the planted faults were written by the same person, so a perfect match is the expected result, not evidence that the playbook would work on a real bill.`));
 
-// 6. Dashboard
-body.push(H1('6. The dashboard'));
-body.push(P(`The interactive dashboard presents the same results for a reader who does not want to run code. It opens with a one-sentence summary and four headline figures (total spend, alerts raised, extra spend in alerts, detection F1 next to the best baseline). A daily spend chart shades every flagged period and can be filtered by account. Clicking a band or a row in the anomaly list opens that anomaly's detail: its cost against the baseline, the written explanation, the usage-versus-price bars, the matched pattern and the reasons for the match, the checks, and how it compares with the planted truth. Further sections show spend by service, the scores table and the robustness chart. Every number links to the data file it came from, including the code that produced it.`));
+// 6. Dashboard and website
+body.push(H1('6. Dashboard and website'));
+body.push(H2('6.1 Results dashboard'));
+body.push(P(`The results dashboard (a Claude Data artifact) presents the analysis of the sample bill for a reader who does not want to run code. It opens with a one-sentence summary and four headline figures, then a daily spend chart that shades every flagged period and can be filtered by account. Clicking a band or a row opens that anomaly's detail: its cost against the baseline, the written explanation, the usage-versus-price bars, the matched pattern, the checks, and how it compares with the planted truth. Further sections show spend by service, the scores table and the robustness chart. Every number links to the data file it came from.`));
+body.push(H2('6.2 Upload website: bring your own bill'));
+body.push(P(`The dashboard only shows the sample. To make the explainer usable on real data, the engine was ported to JavaScript (~engine.js~, about 550 lines) and put behind a single-page website. A user drops a billing export onto the page, and the file is read, aggregated and analysed inside their browser. It is never uploaded, which matters because billing data reveals a company's architecture and spend.`));
+[
+  '**Formats.** Column names are matched automatically against FOCUS, the AWS Cost and Usage Report, Azure cost exports and Google Cloud billing exports. If the date or cost column cannot be found, the page shows a column picker and reads the file again with the user\'s choices.',
+  '**Large files.** The file is parsed as a stream, chunk by chunk, so multi-hundred-megabyte exports do not have to fit in memory as text. Gzipped files (.csv.gz, the usual format for AWS reports) are decompressed in the browser. Hourly rows are summed to days.',
+  '**Settings.** The robust z threshold, the minimum extra cost per day and the baseline window can be changed and the bill re-analysed. Planned events (name, dates, optional account and service) can be added so that sales or migrations are shown but not alerted. Both are remembered in the browser.',
+  '**New spend.** Real bills contain service lines that start mid-period. A line that first appears after the warm-up and averages more than the minimum per day in its first week is reported as new spend (pattern P10), since it has no history to compare against.',
+  '**Missing quantities.** Some exports have no usage quantity. The explainer then says that usage and price cannot be separated, and patterns that depend on a price change are not offered.',
+  '**Output.** Anomalies can be copied as CSV and each explanation can be copied as text.',
+].forEach((t) => body.push(bullet(t)));
+body.push(H2('6.3 Checking the port'));
+body.push(P(`The JavaScript engine was run on the sample bill and on the raw FOCUS CSV and produced exactly the same 16 events as the Python engine: the same dates, extra costs, shapes, usage-or-price labels and patterns. The website was then tested in a headless browser with four inputs: the sample; the original FOCUS file; a gzipped file in AWS Cost and Usage Report column names; and a file whose columns (when, what, amount) match no known format. All columns of the AWS-style file were detected; adding the sale as a planned event lowered its alerts from 16 to 11. The unknown file triggered the column picker and was analysed after the date, cost and service columns were chosen. Analysis of the sample takes about 0.2 seconds in the browser.`));
 
 // 7. Discussion
 body.push(H1('7. Limitations and threats to validity'));
@@ -247,6 +262,7 @@ body.push(H1('7. Limitations and threats to validity'));
   '**The calendar is doing a lot of work.** It raised precision by about 30 points. In practice, calendars go stale and teams forget to log events, so real precision would be lower.',
   '**Accepting a new level hides problems.** After 21 days a persistent fault becomes the baseline. The explanation says this, but an unread alert would still be lost.',
   '**Templates, not language.** The explanations are fixed sentences filled from numbers. They are consistent and checkable, but cannot describe a cause the playbook does not contain. In that case the system still gives the cost, split and share, but its likely cause will be the nearest wrong pattern.',
+  '**The website is untested on real exports.** It reads AWS, Azure and Google Cloud column names, but was only tested on files converted from the synthetic bill. Real exports bring thousands of small lines, credits and refunds; expect more false alarms until the minimum extra per day is raised.',
   '**One provider, one granularity.** Only AWS-style usage types and daily data were used. Hourly data would detect faster; multi-cloud FOCUS data would test whether the playbook features carry over.',
 ].forEach((t) => body.push(bullet(t)));
 
@@ -260,6 +276,7 @@ body.push(P(`The most useful next steps are, in order:`));
   'Learn playbook weights from labelled incidents instead of setting them by hand.',
   'Use a language model to phrase explanations, while keeping the numbers computed and cited as they are now, so the text cannot invent figures.',
   'Run hourly and stream alerts, to cut the time from fault to alert from a day to an hour.',
+  'Try the website on real exports from several providers and tune the defaults from what it finds.',
 ].forEach((t) => body.push(numbered(t, 'future')));
 
 // References
@@ -292,7 +309,7 @@ body.push(table(['Parameter', 'Value', 'Meaning'], [
 ], [2600, 1600, 4800]));
 body.push(caption('Table 7. Explainer parameters.'));
 body.push(P('To reproduce every number in this report:'));
-['python3 generate_data.py', 'python3 engine.py', 'python3 robustness.py', 'python3 figures.py'].forEach((c) =>
+['python3 generate_data.py', 'python3 engine.py', 'python3 robustness.py', 'python3 figures.py', 'python3 -m http.server -d web   # then open the website'].forEach((c) =>
   body.push(new Paragraph({ spacing: { after: 40 }, indent: { left: 567 }, children: [new TextRun({ text: c, font: 'Courier New', size: 19 })] })));
 
 // ---------- document ----------
